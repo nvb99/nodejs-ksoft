@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body onload="init()">
+    <h2 class="text-center text-info">Question Management</h2>
+    <div class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-11">
+                    <input type="text" class="form-control" placeholder="filter" />
+                </div>
+                <div class="col-md-1">
+                    <a href="#" class="btn btn-info">Demo</a>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <tr class="text-danger">
+                <td>Content</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>Answer</td>
+            </tr>
+            <tbody id="question">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function showQuestion() {
+            fetch('http://127.0.0.1:8080/api/questions')
+            .then(response => response.json())
+            .then(data => {
+                var d = document.querySelector('#question')
+                data.forEach(el => {
+                    d.innerHTML +=
+                        `<tr>
+                            <td>${el.content}</td>
+                            <td>${el.a}</td>
+                            <td>${el.b}</td>
+                            <td>${el.c}</td>
+                            <td>${el.d}</td>
+                            <td>${el.answer}</td>                            
+                        </tr>`
+                })
+            })
+            
+        }
+        function init() {
+            showQuestion()
+        }
+    </script>
+</body>
+</html>

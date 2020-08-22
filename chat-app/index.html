@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #message-container {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    #message-container div {
+      background-color: #1596d3;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 0px;
+    }
+
+    #message-container div:nth-child(2n) {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    #send-container {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+    }
+
+    #message-input {
+      flex-grow: 1;
+      padding: 10px 20px;
+      border: 1px solid #1596d3;
+      outline: none;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+    #message-input:focus {
+      border-color: #159600;
+    }
+    #send-button {
+      cursor: pointer;
+      background: forestgreen;
+      color: white;
+      margin: 0.5px;
+      padding: 10px 20px;
+      border: 1px solid #1596d3;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="message-container"></div>
+  <form id="send-container">
+    <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send</button>
+  </form>
+</body>
+</html>
